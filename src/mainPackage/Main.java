@@ -17,7 +17,12 @@ public class Main extends JFrame {
 	
 	
 	private JPanel contentPane;
-	
+	int intWolvesNum;
+	int wolvesEnergy;
+	int WolvesReproduction;
+	int intSheepNum;
+	int sheepEnergy;
+	int sheepReproduction;
 	/**
 	 * Create the frame.
 	 */
@@ -49,5 +54,16 @@ public class Main extends JFrame {
 			}
 		});
 
+	}
+	
+	public void start(int wolvnum,int wolven,int wolvrec,int shnum,int shen,int sherep) {
+		intWolvesNum = wolvnum;
+		wolvesEnergy = wolven;
+		WolvesReproduction = wolvrec;
+		intSheepNum = shnum;
+		sheepEnergy = shen;
+		sheepReproduction = sherep;
+		
+		System.out.println(intWolvesNum);
 	}
 }

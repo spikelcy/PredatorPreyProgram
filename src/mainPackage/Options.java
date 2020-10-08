@@ -5,12 +5,17 @@ import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JTextPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.JSlider;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 /**
@@ -61,6 +66,7 @@ public class Options extends JPanel {
 		gbc_intWolvesNumLabel.gridy = 2;
 		add(intWolvesNumLabel, gbc_intWolvesNumLabel);
 		
+		
 		JSlider intWolvesNumSlider = new JSlider();
 		GridBagConstraints gbc_intWolvesNumSlider = new GridBagConstraints();
 		gbc_intWolvesNumSlider.fill = GridBagConstraints.HORIZONTAL;
@@ -69,6 +75,7 @@ public class Options extends JPanel {
 		gbc_intWolvesNumSlider.gridx = 2;
 		gbc_intWolvesNumSlider.gridy = 2;
 		add(intWolvesNumSlider, gbc_intWolvesNumSlider);
+		
 		
 		intWolvesNumText = new JTextField();
 		intWolvesNumText.setEditable(false);
@@ -79,6 +86,16 @@ public class Options extends JPanel {
 		gbc_intWolvesNumText.gridy = 2;
 		add(intWolvesNumText, gbc_intWolvesNumText);
 		intWolvesNumText.setColumns(10);
+		intWolvesNumText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		
+		/**
+		 * Change text when slider changes for initial wolves number
+		 */
+		intWolvesNumSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          intWolvesNumText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		        }
+		      });
 		
 		JLabel wolvesEnergyLabel = new JLabel("Energy Gain");
 		GridBagConstraints gbc_wolvesEnergyLabel = new GridBagConstraints();
@@ -88,6 +105,8 @@ public class Options extends JPanel {
 		add(wolvesEnergyLabel, gbc_wolvesEnergyLabel);
 		
 		JSlider wolvesEnergySlider = new JSlider();
+		wolvesEnergySlider.setValue(25);
+		wolvesEnergySlider.setMaximum(50);
 		GridBagConstraints gbc_wolvesEnergySlider = new GridBagConstraints();
 		gbc_wolvesEnergySlider.fill = GridBagConstraints.HORIZONTAL;
 		gbc_wolvesEnergySlider.gridwidth = 3;
@@ -105,6 +124,17 @@ public class Options extends JPanel {
 		gbc_wolvesEnergyText.gridy = 3;
 		add(wolvesEnergyText, gbc_wolvesEnergyText);
 		wolvesEnergyText.setColumns(10);
+		wolvesEnergyText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		
+		/**
+		 * Change text when slider changes for wolves energy
+		 */
+		wolvesEnergySlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		    	  wolvesEnergyText.setText(String.valueOf(wolvesEnergySlider.getValue()));
+		        }
+		      });
+		
 		
 		JLabel wolvesReproductionLabel = new JLabel("Reproduction %");
 		GridBagConstraints gbc_wolvesReproductionLabel = new GridBagConstraints();
@@ -132,6 +162,18 @@ public class Options extends JPanel {
 		gbc_WolvesReproductionText.gridy = 4;
 		add(WolvesReproductionText, gbc_WolvesReproductionText);
 		WolvesReproductionText.setColumns(10);
+		WolvesReproductionText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		
+		/**
+		 * Change text when slider changes for wolvesReproductionSlider
+		 */
+		wolvesReproductionSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		    	  WolvesReproductionText.setText(String.valueOf(wolvesReproductionSlider.getValue()));
+		        }
+		      });
+		
+		
 		
 		JLabel sheepLabel = new JLabel("Sheep Options");
 		GridBagConstraints gbc_sheepLabel = new GridBagConstraints();
@@ -165,6 +207,17 @@ public class Options extends JPanel {
 		gbc_intSheepNumText.gridy = 6;
 		add(intSheepNumText, gbc_intSheepNumText);
 		intSheepNumText.setColumns(10);
+		intSheepNumText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		
+		/**
+		 * Change text when slider changes for intSheepNumSlider
+		 */
+		intSheepNumSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		    	  intSheepNumText.setText(String.valueOf(intSheepNumSlider.getValue()));
+		        }
+		      });
+		
 		
 		JLabel sheepEnergyLabel = new JLabel("Max Initial Energy");
 		GridBagConstraints gbc_sheepEnergyLabel = new GridBagConstraints();
@@ -191,6 +244,17 @@ public class Options extends JPanel {
 		gbc_sheepEnergyText.gridy = 7;
 		add(sheepEnergyText, gbc_sheepEnergyText);
 		sheepEnergyText.setColumns(10);
+		sheepEnergyText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		
+		/**
+		 * Change text when slider changes for sheepEnergySlider
+		 */
+		sheepEnergySlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		    	  sheepEnergyText.setText(String.valueOf(sheepEnergySlider.getValue()));
+		        }
+		      });
+		
 		
 		JLabel sheepReproductionLabel = new JLabel("Reproduction %");
 		GridBagConstraints gbc_sheepReproductionLabel = new GridBagConstraints();
@@ -217,6 +281,17 @@ public class Options extends JPanel {
 		gbc_sheepReproductionText.gridy = 8;
 		add(sheepReproductionText, gbc_sheepReproductionText);
 		sheepReproductionText.setColumns(10);
+		sheepReproductionText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		
+		/**
+		 * Change text when slider changes for sheepEnergySlider
+		 */
+		sheepReproductionSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		    	  sheepReproductionText.setText(String.valueOf(sheepReproductionSlider.getValue()));
+		        }
+		      });
+		
 		
 		JButton startButton = new JButton("Start");
 		GridBagConstraints gbc_startButton = new GridBagConstraints();
@@ -224,6 +299,19 @@ public class Options extends JPanel {
 		gbc_startButton.gridx = 8;
 		gbc_startButton.gridy = 9;
 		add(startButton, gbc_startButton);
+		startButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int wolvesNum = intWolvesNumSlider.getValue();
+				int wolvesEn = wolvesEnergySlider.getValue();
+				int wolvesRep = wolvesReproductionSlider.getValue();
+				int sheepNum =  intSheepNumSlider.getValue();
+				int sheepEn = sheepEnergySlider.getValue();
+				int sheepRep = sheepReproductionSlider.getValue();
+				main.start(wolvesNum,wolvesEn,wolvesRep,sheepNum,sheepEn,sheepRep);
+			}
+		});
+		
 	}
 
 }
