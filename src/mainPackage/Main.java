@@ -23,6 +23,7 @@ public class Main extends JFrame {
 	int intSheepNum;
 	int sheepEnergy;
 	int sheepReproduction;
+	static Patch[][] map = new Patch[200][200];
 	/**
 	 * Create the frame.
 	 */
@@ -65,5 +66,6 @@ public class Main extends JFrame {
 		sheepReproduction = sherep;
 		
 		System.out.println(intWolvesNum);
+		System.out.println(map.length);
 	}
 }
