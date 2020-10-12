@@ -24,6 +24,8 @@ public class Main extends JFrame {
 	int intSheepNum;
 	int sheepEnergy;
 	int sheepReproduction;
+	Results resultsMenu;
+	 static Main frame;
 	static Patch[][] map = new Patch[200][200];
 	/**
 	 * Create the frame.
@@ -35,6 +37,8 @@ public class Main extends JFrame {
 		
 		//start at connectionMenu first
 		Options optionMenu = new Options(this);
+		resultsMenu = new Results(this);
+		
 		//contentPane = new JPanel();
 		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		//contentPane.setLayout(new BorderLayout(0, 0));
@@ -45,7 +49,7 @@ public class Main extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		Main frame = new Main();
+		frame = new Main();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -66,9 +70,14 @@ public class Main extends JFrame {
 		sheepEnergy = shen;
 		sheepReproduction = sherep;
 		
+		
+		frame.setContentPane(resultsMenu);
+		frame.validate();
+		
 		initMap();
 		placeAnimal("wolf",intWolvesNum);
 		placeAnimal("sheep",intSheepNum);
+		
 		
 		
 		
