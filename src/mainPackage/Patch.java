@@ -40,5 +40,28 @@ public class Patch {
 		animalsHere.add(a);
 
 	}
+	
+
+	/**
+	 * Updates the array of animals targeting this patch with a new animal.
+	 * @param p
+	 */
+	public void target(Animal a) {
+		animalsTarget.add(a);
+
+	}
+	
+	/**
+	 * Moves animals from animalTarget to animalHere
+	 */
+	public void targetToPatch() {
+
+		animalsHere.clear();
+		animalsHere = animalsTarget;
+		animalsTarget = new ArrayList<Animal>();
+
+	}
+
+
 
 }
