@@ -3,6 +3,8 @@ package mainPackage;
 public class Animal {
 	String name;
 	int id = 0;
+	int hierachID = 0;
+	int energy = 0;
 	int x,y;
 	
 	public Animal(String name,int id) {
