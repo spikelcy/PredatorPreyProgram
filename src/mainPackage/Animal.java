@@ -5,11 +5,15 @@ public class Animal {
 	int id = 0;
 	int hierachID = 0;
 	int energy = 0;
+	int reprodrate = 0;
 	int x,y;
 	
-	public Animal(String name,int id) {
+	public Animal(String name,int id,int energy,int reprodrate,int hierachID) {
 		this.name = name;
 		this.id = id;
+		this.energy = energy;
+		this.reprodrate = reprodrate;
+		this.hierachID = hierachID;
 	}
 
 	public void setLocation(int x, int y) {

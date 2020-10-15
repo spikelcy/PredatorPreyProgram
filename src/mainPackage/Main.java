@@ -78,8 +78,8 @@ public class Main extends JFrame {
 		frame.validate();
 		
 		initMap();
-		placeAnimal("wolf",intWolvesNum);
-		placeAnimal("sheep",intSheepNum);
+		placeAnimal("wolf",intWolvesNum,wolvesEnergy,WolvesReproduction,2);
+		placeAnimal("sheep",intSheepNum,sheepEnergy,sheepReproduction,1);
 		
 		
 		//run simulation of movement
@@ -89,8 +89,13 @@ public class Main extends JFrame {
 					System.out.println("Tick "+i);
 					// Simulate each tick
 					tickFunctions(i);
-					// update people in patches
+					// update animal in patches
 					targetToPatch();
+					//check death
+					death();
+					//reproduce
+					reproduce();
+					
 				}
 		
 		
@@ -99,6 +104,17 @@ public class Main extends JFrame {
 
 	}
 	
+	private void reproduce() {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	private void death() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/**
 	 * initializing map of patches
 	 */
@@ -112,10 +128,10 @@ public class Main extends JFrame {
 		}
 	}
 	
-	public void placeAnimal(String name,int num) {
+	public void placeAnimal(String name,int num,int energy,int reprodrate,int heircID) {
 		//Place people around map
 				for (int j = 0; j < num; j++) {
-					Animal animal = new Animal(name,lastID++);
+					Animal animal = new Animal(name,lastID++,energy,reprodrate,heircID);
 					Random rand = new Random(); 
 					while(true) {	
 						int x = rand.nextInt(MAP_SIZE);
@@ -134,9 +150,6 @@ public class Main extends JFrame {
 	}
 	
 	
-	private static void pickDirection(Animal animal) {
-		
-	}
 	/**
 	 * Move from one patch to another based on random direction
 	 * @param person
@@ -167,7 +180,7 @@ public class Main extends JFrame {
 				x--;
 				break;
 			}
-			System.out.println("Animal "+animal.id+" wants to move to pos x:"+x+"and pos y:"+y);
+			System.out.println("Animal "+animal.id+" of hierch: "+animal.hierachID +" wants to move to pos x:"+x+"and pos y:"+y);
 			}
 			while (x > 199 || y > 199 || x < 0 || y < 0);
 		
