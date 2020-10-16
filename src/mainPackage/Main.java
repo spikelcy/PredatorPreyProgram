@@ -18,7 +18,7 @@ public class Main extends JFrame {
 	
 	private JPanel contentPane;
 	private static int MAP_SIZE = 200;
-	private static int TICKS = 100;
+	private static int TICKS = 5;
 	int intWolvesNum;
 	int wolvesEnergy;
 	int WolvesReproduction;
@@ -95,6 +95,9 @@ public class Main extends JFrame {
 					death();
 					//reproduce
 					reproduce();
+					//add all newly made & moved children to their patches
+					childrenTargetToPatch();
+
 					
 				}
 		
@@ -106,7 +109,41 @@ public class Main extends JFrame {
 	
 	private void reproduce() {
 		// TODO Auto-generated method stub
-		
+				for(int i = 0; i < MAP_SIZE; i++){
+					for(int j = 0; j < MAP_SIZE; j++){
+						Patch currentPatch = map[i][j];
+				    	int numAnimals = currentPatch.animalsHere.size();
+				    	   if (numAnimals != 0) {
+				    		   for (int k = 0; k < numAnimals; k++) {
+				    			   Animal animal = currentPatch.animalsHere.get(k);
+				    			   Random rand = new Random();
+				    			   int num = rand.nextInt(101);
+				    			   // if num is within reproduction rate, reproduce
+				    			   if (num <= animal.reprodrate ) {
+				    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" reproduces");
+				    				   //set energy of animal to half
+				    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has energy: "+animal.getEnergy());
+				    				   int newEnergy = (animal.getEnergy()/2);
+				    				   animal.setEnergy(newEnergy);
+				    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has new energy: "+animal.getEnergy());
+				    				   Animal newAnimal;
+				    				   //make new animal and move it.
+				    				   //Use attributes based on heirchID
+				    				   if (animal.hierachID == 1) {
+				    					   newAnimal = new Animal("sheep",lastID++,sheepEnergy,sheepReproduction,1);
+				    				   }else {
+				    					   newAnimal = new Animal("wolf",lastID++,wolvesEnergy,WolvesReproduction,2);
+				    				   }
+				    				   
+				    				   newAnimal.setX(animal.getX());
+				    				   newAnimal.setY(animal.getY());
+				    				   
+				    				   move(newAnimal);
+				    			   }
+				    		   }
+				    	   }
+					}
+				}
 		
 	}
 
@@ -198,6 +235,19 @@ public class Main extends JFrame {
 		for(int i = 0; i < MAP_SIZE; i++){
 			for(int j = 0; j < MAP_SIZE; j++){
 				map[i][j].targetToPatch();
+			}
+		}
+	}
+	
+	/**
+	 * Move animal children from animalTarget to animalHere in patch
+	 */
+	private static void childrenTargetToPatch() {
+
+		//System.out.println("Update people in patches");
+		for(int i = 0; i < MAP_SIZE; i++){
+			for(int j = 0; j < MAP_SIZE; j++){
+				map[i][j].addchildrenToPatch();;
 			}
 		}
 	}

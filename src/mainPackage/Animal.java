@@ -5,6 +5,14 @@ public class Animal {
 	int id = 0;
 	int hierachID = 0;
 	int energy = 0;
+	public int getEnergy() {
+		return energy;
+	}
+
+	public void setEnergy(int energy) {
+		this.energy = energy;
+	}
+
 	int reprodrate = 0;
 	int x,y;
 	

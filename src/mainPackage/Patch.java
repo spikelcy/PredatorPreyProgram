@@ -61,6 +61,14 @@ public class Patch {
 		animalsTarget = new ArrayList<Animal>();
 
 	}
+	
+	/**
+	 * Moves all animal children from Target to animalHere. Only to be used after reproduce().
+	 */
+	public void addchildrenToPatch() {
+		animalsHere.addAll(animalsTarget);
+		animalsTarget = new ArrayList<Animal>();
+	}
 
 
 
