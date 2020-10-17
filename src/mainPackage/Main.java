@@ -1,6 +1,7 @@
 package mainPackage;
 
 import java.awt.EventQueue;
+import java.util.ArrayList;
 import java.util.Random;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -120,12 +121,12 @@ public class Main extends JFrame {
 				    			   int num = rand.nextInt(101);
 				    			   // if num is within reproduction rate, reproduce
 				    			   if (num <= animal.reprodrate ) {
-				    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" reproduces");
+				    				   //System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" reproduces");
 				    				   //set energy of animal to half
-				    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has energy: "+animal.getEnergy());
+				    				   //System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has energy: "+animal.getEnergy());
 				    				   int newEnergy = (animal.getEnergy()/2);
 				    				   animal.setEnergy(newEnergy);
-				    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has new energy: "+animal.getEnergy());
+				    				  // System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has new energy: "+animal.getEnergy());
 				    				   Animal newAnimal;
 				    				   //make new animal and move it.
 				    				   //Use attributes based on heirchID
@@ -149,7 +150,32 @@ public class Main extends JFrame {
 
 	private void death() {
 		// TODO Auto-generated method stub
-		
+		for(int i = 0; i < MAP_SIZE; i++){
+			for(int j = 0; j < MAP_SIZE; j++){
+				Patch currentPatch = map[i][j];
+		    	int numAnimals = currentPatch.animalsHere.size();
+		    	ArrayList<Animal> removeAnimals = new ArrayList<Animal>();
+		    	   if (numAnimals != 0) {
+		    		   System.out.println("Patch "+ i +" "+ j +" checking death!");
+		    		   System.out.println("Patch "+ i +" "+ j +" now has animals: "+currentPatch.animalsHere.size());
+		    		   for (int k = 0; k < numAnimals; k++) {
+		    			   Animal animal = currentPatch.animalsHere.get(k);
+		    			   // if num is within reproduction rate, reproduce
+		    			   // 10 for testing
+		    			   if (animal.getEnergy() < 10) {
+		    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" dies");
+		    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has energy: "+animal.getEnergy());
+		    				   removeAnimals.add(animal);
+		    			   }
+		    		   }
+	
+		    		   currentPatch.animalsHere.removeAll(removeAnimals);
+		    		   System.out.println("Patch "+ i +" "+ j +" now has animals: "+currentPatch.animalsHere.size());
+
+		    	   }
+			}
+		}
+
 	}
 
 	/**
@@ -196,13 +222,13 @@ public class Main extends JFrame {
 		int x = animal.getX();
 		int y = animal.getY();
 		Random rand = new Random();
-		System.out.println("Animal "+animal.id+" is at pos x: "+x+"and pos y:"+y);
+		//System.out.println("Animal "+animal.id+" is at pos x: "+x+"and pos y:"+y);
 		do {
 			x = animal.getX();
 			y = animal.getY();
 			// 0 = N, 1 = S, 2 = E, 3 = W
 			int directionNum = rand.nextInt(4);
-			System.out.println("number:"+directionNum);
+			//System.out.println("number:"+directionNum);
 			switch(directionNum) {
 			  case 0:
 			    y++;
@@ -217,7 +243,7 @@ public class Main extends JFrame {
 				x--;
 				break;
 			}
-			System.out.println("Animal "+animal.id+" of hierch: "+animal.hierachID +" wants to move to pos x:"+x+"and pos y:"+y);
+			//System.out.println("Animal "+animal.id+" of hierch: "+animal.hierachID +" wants to move to pos x:"+x+"and pos y:"+y);
 			}
 			while (x > 199 || y > 199 || x < 0 || y < 0);
 		
