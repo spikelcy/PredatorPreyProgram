@@ -162,7 +162,7 @@ public class Main extends JFrame {
 		    			   Animal animal = currentPatch.animalsHere.get(k);
 		    			   // if num is within reproduction rate, reproduce
 		    			   // 10 for testing
-		    			   if (animal.getEnergy() < 10) {
+		    			   if (animal.getEnergy() <= 0) {
 		    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" dies");
 		    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has energy: "+animal.getEnergy());
 		    				   removeAnimals.add(animal);
@@ -222,6 +222,12 @@ public class Main extends JFrame {
 		int x = animal.getX();
 		int y = animal.getY();
 		Random rand = new Random();
+		
+		//if animal is not the lowest on the hierarchy, lose 1 energy on move)
+		if (animal.hierachID > 1) {
+			int newEnergy = animal.getEnergy() - 1;
+			animal.setEnergy(newEnergy);
+		}
 		//System.out.println("Animal "+animal.id+" is at pos x: "+x+"and pos y:"+y);
 		do {
 			x = animal.getX();
