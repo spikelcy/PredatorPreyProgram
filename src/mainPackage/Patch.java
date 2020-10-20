@@ -70,6 +70,52 @@ public class Patch {
 		animalsTarget = new ArrayList<Animal>();
 	}
 
+	public int getWolves() {
+		// TODO Auto-generated method stub
+		int count = 0;
+		 for (int k = 0; k < animalsHere.size(); k++) {
+			 Animal animal = animalsHere.get(k);
+			 if (animal.hierachID == 2) {
+				 count++;
+			 }
+		 }
+		return count;
+	}
+
+	public int getSheep() {
+		// TODO Auto-generated method stub
+		int count = 0;
+		 for (int k = 0; k < animalsHere.size(); k++) {
+			 Animal animal = animalsHere.get(k);
+			 if (animal.hierachID == 1) {
+				 count++;
+			 }
+		 }
+		return count;	
+		}
+
+	public void removeSheep(int num) {
+		// TODO Auto-generated method stub
+		int count = 0;
+		ArrayList<Animal> removeAnimals = new ArrayList<Animal>();
+		System.out.println("Patch "+ x +" "+ y +" now has animals: "+animalsHere.size());
+		 for (int k = 0; k < animalsHere.size(); k++) {
+			 Animal animal = animalsHere.get(k);
+			 if (animal.hierachID == 1) {
+				 System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has been eaten");
+				 removeAnimals.add(animal);
+				 count++;
+				 System.out.println("Count increases: "+count);
+			 }
+			 if (count == num) {
+				 System.out.println("Count is: "+count+". Num is: "+ num);
+				 break;
+			 }
+		 }
+		 animalsHere.removeAll(removeAnimals);
+		 System.out.println("Patch "+ x +" "+ y +" now has animals: "+animalsHere.size());
+	}
+
 
 
 }

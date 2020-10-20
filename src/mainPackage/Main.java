@@ -92,6 +92,8 @@ public class Main extends JFrame {
 					tickFunctions(i);
 					// update animal in patches
 					targetToPatch();
+					//get wolves to attempt to catch a sheep
+					catchSheep();
 					//check death
 					death();
 					//reproduce
@@ -108,6 +110,22 @@ public class Main extends JFrame {
 
 	}
 	
+	private void catchSheep() {
+		// TODO Auto-generated method stub
+		for(int i = 0; i < MAP_SIZE; i++){
+			for(int j = 0; j < MAP_SIZE; j++){
+					Patch currentPatch = map[i][j];
+					//get number of wolves and sheep
+					int wolves = currentPatch.getWolves();
+					int sheep = currentPatch.getSheep();
+					//Remove Sheep based on number of wolves
+					if (wolves != 0 && sheep != 0) {
+						currentPatch.removeSheep(sheep);
+					}
+			}
+		}
+	}
+
 	private void reproduce() {
 		// TODO Auto-generated method stub
 				for(int i = 0; i < MAP_SIZE; i++){
