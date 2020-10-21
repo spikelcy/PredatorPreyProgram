@@ -31,6 +31,10 @@ public class Main extends JFrame {
 	static Patch[][] map = new Patch[200][200];
 	// Storing the newest person's id, make sure all person have unique ID
 		static int lastID = 0;
+		
+	//Counts
+	ArrayList<Integer> wolvesCount = new ArrayList<Integer>() ;
+	ArrayList<Integer> sheepCount = new ArrayList<Integer>() ;
 	/**
 	 * Create the frame.
 	 */
@@ -100,6 +104,10 @@ public class Main extends JFrame {
 					reproduce();
 					//add all newly made & moved children to their patches
 					childrenTargetToPatch();
+					
+					//count number of remainding sheeps and wolves
+					countAnimals(i);
+					
 
 					
 				}
@@ -110,6 +118,26 @@ public class Main extends JFrame {
 
 	}
 	
+
+
+	private void countAnimals(int count) {
+		// TODO Auto-generated method stub
+
+		int wolves = 0;
+		int sheep = 0;
+		for(int i = 0; i < MAP_SIZE; i++){
+			for(int j = 0; j < MAP_SIZE; j++){
+				Patch currentPatch = map[i][j];
+				wolves =  wolves + currentPatch.getWolves();
+				sheep =  sheep + currentPatch.getSheep();
+				
+			}
+		}
+		wolvesCount.add(wolves);
+		sheepCount.add(sheep);
+	}
+
+	//Still need to add energy transfer system
 	private void catchSheep() {
 		// TODO Auto-generated method stub
 		for(int i = 0; i < MAP_SIZE; i++){
