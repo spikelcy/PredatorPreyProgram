@@ -1,5 +1,7 @@
 package mainPackage;
 
+import java.util.Random;
+
 public class Animal {
 	String name;
 	int id = 0;
@@ -19,7 +21,15 @@ public class Animal {
 	public Animal(String name,int id,int energy,int reprodrate,int hierachID) {
 		this.name = name;
 		this.id = id;
-		this.energy = energy;
+		
+		//If animal is sheep, randomize energy else just set.
+		if (hierachID == 1) {
+			Random rand = new Random(); 
+			int initialenergy = rand.nextInt(energy);
+			this.energy = 1 + initialenergy;
+		}else {
+			this.energy = energy;
+		}
 		this.reprodrate = reprodrate;
 		this.hierachID = hierachID;
 	}
