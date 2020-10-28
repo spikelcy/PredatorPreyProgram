@@ -2,8 +2,8 @@
 Simple Agent-base Predator Prey Model Program
 
 Current Progress:
-1. Simple UI working (no live graph)
-2. set up of both wolves and sheep(not completely accurate e.g sheep does not get random energy based on initial number)
+1. Simple UI working (added simple results page)
+2. set up of both wolves and sheep (working now)
 3. Animals can move around during a timestep and wolves lose energy on move
 4. Set up of map
 5. Animals can reproduce based on percentage
