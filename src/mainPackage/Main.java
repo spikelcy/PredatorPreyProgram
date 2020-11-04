@@ -145,7 +145,12 @@ public class Main extends JFrame {
 					Patch currentPatch = map[i][j];
 					//get number of wolves and sheep
 					int wolves = currentPatch.getWolves();
-					int sheep = currentPatch.getSheep();
+					// Get a list of energy that the sheeps store(also is a count of sheep).
+					ArrayList<Integer> sheepEnergy = new ArrayList<Integer>() ;
+					sheepEnergy = currentPatch.getSheepEnergy();
+					int sheep = sheepEnergy.size();
+					//add energy to wolves
+					currentPatch.wolvesEnergyAdd(sheepEnergy);
 					//Remove Sheep based on number of wolves
 					if (wolves != 0 && sheep != 0) {
 						currentPatch.removeSheep(sheep);

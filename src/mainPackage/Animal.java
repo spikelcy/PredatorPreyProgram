@@ -18,6 +18,13 @@ public class Animal {
 	int reprodrate = 0;
 	int x,y;
 	
+	/**
+	 * add new energy value to current energy value
+	 */
+	public void addEnergy(int energy) {
+		this.energy = this.energy + energy;
+	}
+	
 	public Animal(String name,int id,int energy,int reprodrate,int hierachID) {
 		this.name = name;
 		this.id = id;

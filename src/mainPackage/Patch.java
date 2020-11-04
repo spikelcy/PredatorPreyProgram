@@ -81,7 +81,7 @@ public class Patch {
 		 }
 		return count;
 	}
-
+	
 	public int getSheep() {
 		// TODO Auto-generated method stub
 		int count = 0;
@@ -91,7 +91,19 @@ public class Patch {
 				 count++;
 			 }
 		 }
-		return count;	
+		return count;
+	}
+
+	public ArrayList<Integer> getSheepEnergy() {
+		// TODO Auto-generated method stub
+		ArrayList<Integer> sheepEnergy = new ArrayList<Integer>();
+		 for (int k = 0; k < animalsHere.size(); k++) {
+			 Animal animal = animalsHere.get(k);
+			 if (animal.hierachID == 1) {
+				 sheepEnergy.add(animal.energy);
+			 }
+		 }
+		return sheepEnergy;	
 		}
 
 	public void removeSheep(int num) {
@@ -114,6 +126,23 @@ public class Patch {
 		 }
 		 animalsHere.removeAll(removeAnimals);
 		 System.out.println("Patch "+ x +" "+ y +" now has animals: "+animalsHere.size());
+	}
+
+	public void wolvesEnergyAdd(ArrayList<Integer> energy) {
+		// TODO Auto-generated method stub
+		int count = 0;
+		 for (int k = 0; k < animalsHere.size(); k++) {
+			 Animal animal = animalsHere.get(k);
+			 // if count is above size of energy list that means that there is no more sheep to eat so break.
+			 if (count > energy.size()) {
+				 break;
+			 }
+			 
+			 if (animal.hierachID == 2) {
+				 animal.addEnergy(energy.get(count));
+				 count++;
+			 }
+		 }
 	}
 
 
