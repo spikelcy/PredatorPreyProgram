@@ -8,11 +8,11 @@ Current Progress:
 4. Set up of map
 5. Animals can reproduce based on percentage
 6. Animals can die
-7. Wolves can eat sheep 
+7. Wolves can eat sheep (energy can transfer)
 
 Things to do:
 1. Add live graph or at least some display of count of sheep and wolves per tick (simple number results page exist but not connected)
-2. Fix eating system so that sheep energy is transferred to wolf that ate it.
+2. Test eating system so that sheep energy is transferred to wolf that ate it properly.
 3. Fix creation system so animals get proper initial stats.
 4. Test overall system
 
