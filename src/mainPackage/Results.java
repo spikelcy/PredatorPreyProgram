@@ -12,12 +12,17 @@ public class Results extends JPanel {
 	private JTextField textField_2;
 	private JTextField textField;
 	
+	private Main main;
+	
 
 	/**
 	 * Create the panel.
 	 * @param main 
 	 */
 	public Results(Main main) {
+		
+		this.main = main;
+		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0};
@@ -77,6 +82,10 @@ public class Results extends JPanel {
 		add(textField_2, gbc_textField_2);
 		textField_2.setColumns(10);
 
+	}
+	
+	public void testCount(int count) {
+		System.out.println("Updating Process Working!" + count);
 	}
 
 

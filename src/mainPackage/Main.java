@@ -108,6 +108,7 @@ public class Main extends JFrame {
 					//count number of remainding sheeps and wolves
 					countAnimals(i);
 					
+					frame.resultsMenu.testCount(i);
 
 					
 				}
@@ -120,6 +121,10 @@ public class Main extends JFrame {
 	
 
 
+	/**
+	 * @param count Which iteration this simulation is on
+	 * Counts number of wolves and sheep left after one tick of simulation
+	 */
 	private void countAnimals(int count) {
 		// TODO Auto-generated method stub
 
@@ -133,11 +138,16 @@ public class Main extends JFrame {
 				
 			}
 		}
+		
 		wolvesCount.add(wolves);
 		sheepCount.add(sheep);
 	}
 
-	//Still need to add energy transfer system
+	
+	/**
+	 * Iterate through each patch on map and "eat"(remove) sheep based on number of wolves here
+	 * then add sheep's energy to each wolf.
+	 */
 	private void catchSheep() {
 		// TODO Auto-generated method stub
 		for(int i = 0; i < MAP_SIZE; i++){
@@ -159,6 +169,10 @@ public class Main extends JFrame {
 		}
 	}
 
+	/**
+	 * Iterate through all patches and try to reproduce(create offspring)
+	 * Set energy to half of parent animal
+	 */
 	private void reproduce() {
 		// TODO Auto-generated method stub
 				for(int i = 0; i < MAP_SIZE; i++){
