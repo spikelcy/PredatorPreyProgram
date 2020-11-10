@@ -30,7 +30,10 @@ public class Main extends JFrame {
 	 static Main frame;
 	static Patch[][] map = new Patch[200][200];
 	// Storing the newest person's id, make sure all person have unique ID
-		static int lastID = 0;
+	static int lastID = 0;
+	
+	//testing graphs
+	PieChartTest demo; 
 		
 	//Counts
 	ArrayList<Integer> wolvesCount = new ArrayList<Integer>() ;
@@ -46,6 +49,7 @@ public class Main extends JFrame {
 		//start at connectionMenu first
 		Options optionMenu = new Options(this);
 		resultsMenu = new Results(this);
+		demo = new PieChartTest("Comparison", "Which operating system are you using?");
 		
 		//contentPane = new JPanel();
 		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -79,7 +83,7 @@ public class Main extends JFrame {
 		sheepReproduction = sherep;
 		
 		
-		frame.setContentPane(resultsMenu);
+		frame.setContentPane(demo);
 		frame.validate();
 		
 		initMap();
@@ -108,7 +112,7 @@ public class Main extends JFrame {
 					//count number of remainding sheeps and wolves
 					countAnimals(i);
 					
-					frame.resultsMenu.testCount(i);
+					//frame.resultsMenu.testCount(i);
 
 					
 				}
@@ -139,6 +143,9 @@ public class Main extends JFrame {
 			}
 		}
 		
+		System.out.println("Wolves count: "+wolves);
+		System.out.println("Sheep count: "+sheep);
+		
 		wolvesCount.add(wolves);
 		sheepCount.add(sheep);
 	}
@@ -159,10 +166,11 @@ public class Main extends JFrame {
 					ArrayList<Integer> sheepEnergy = new ArrayList<Integer>() ;
 					sheepEnergy = currentPatch.getSheepEnergy();
 					int sheep = sheepEnergy.size();
-					//add energy to wolves
-					currentPatch.wolvesEnergyAdd(sheepEnergy);
-					//Remove Sheep based on number of wolves
+
+					//Remove Sheep based on number of wolves and add energy to wolves
 					if (wolves != 0 && sheep != 0) {
+						//add energy to wolves
+						currentPatch.wolvesEnergyAdd(sheepEnergy);
 						currentPatch.removeSheep(sheep);
 					}
 			}
