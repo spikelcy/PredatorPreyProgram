@@ -9,9 +9,10 @@ Current Progress:
 5. Animals can reproduce based on percentage
 6. Animals can die
 7. Wolves can eat sheep (energy can transfer)
+8.JFreeChart connected
 
 Things to do:
-1. Add live graph or at least some display of count of sheep and wolves per tick (simple number results page exist but not connected)
+1. Add proper live graph(XYPlot) or at least some display of count of sheep and wolves per tick (simple number results page exist but not connected)
 2. Test eating system so that sheep energy is transferred to wolf that ate it properly.
 3. Fix creation system so animals get proper initial stats.
 4. Test overall system
