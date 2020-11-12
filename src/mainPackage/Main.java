@@ -86,6 +86,10 @@ public class Main extends JFrame {
 		frame.setContentPane(demo);
 		frame.validate();
 		
+		//testing chart displaying
+		//frame.setContentPane(demo.getChart());
+		//frame.validate();
+		
 		initMap();
 		placeAnimal("wolf",intWolvesNum,wolvesEnergy,WolvesReproduction,2);
 		placeAnimal("sheep",intSheepNum,sheepEnergy,sheepReproduction,1);

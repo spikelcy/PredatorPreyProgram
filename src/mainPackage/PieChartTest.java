@@ -13,6 +13,7 @@ import org.jfree.util.Rotation;
 
 public class PieChartTest extends JPanel{
     private static final long serialVersionUID = 1L;
+    ChartPanel panel;
 
     public PieChartTest(String applicationTitle, String chartTitle) {
         super();
@@ -21,9 +22,9 @@ public class PieChartTest extends JPanel{
         // based on the dataset we create the chart
         JFreeChart chart = createChart(dataset, chartTitle);
         // we put the chart into a panel
-        ChartPanel chartPanel = new ChartPanel(chart);
+        panel = new ChartPanel(chart);
         // default size
-        chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
+        panel.setPreferredSize(new java.awt.Dimension(500, 270));
         // add it to our application
        // setContentPane(chartPanel);
 
@@ -60,5 +61,13 @@ public class PieChartTest extends JPanel{
         plot.setForegroundAlpha(0.5f);
         return chart;
 
+    }
+    
+    /**
+     * @return the panel to display
+     */
+    public ChartPanel getChart() {
+		return panel;
+    	
     }
 }
