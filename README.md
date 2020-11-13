@@ -9,12 +9,13 @@ Current Progress:
 5. Animals can reproduce based on percentage
 6. Animals can die
 7. Wolves can eat sheep (energy can transfer)
-8. JFreeChart connected and works as a JPanel
+8. JFreeChart connected and works as a JPanel(XYPLot demo works)
 
 Things to do:
 1. Add proper live graph(XYPlot) or at least some display of count of sheep and wolves per tick (simple number results page exist but not connected)
 2. Test eating system so that sheep energy is transferred to wolf that ate it properly.
-3. Fix creation system so animals get proper initial stats.
+3. Fix creation system so animals get proper initial stats.(done)
+5. Decide UI flow of system
 4. Test overall system
 
 Possible extensions to try:
