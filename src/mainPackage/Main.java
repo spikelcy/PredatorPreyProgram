@@ -83,12 +83,12 @@ public class Main extends JFrame {
 		sheepReproduction = sherep;
 		
 		
-		frame.setContentPane(demo);
-		frame.validate();
+		//frame.setContentPane(demo);
+		//frame.validate();
 		
 		//testing chart displaying
-		//frame.setContentPane(demo.getChart());
-		//frame.validate();
+		frame.setContentPane(demo.getChart());
+		frame.validate();
 		
 		initMap();
 		placeAnimal("wolf",intWolvesNum,wolvesEnergy,WolvesReproduction,2);
