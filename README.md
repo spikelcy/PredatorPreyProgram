@@ -12,11 +12,12 @@ Current Progress:
 8. JFreeChart connected and works as a JPanel(XYPLot demo works)
 
 Things to do:
-1. Add proper live graph(XYPlot) or at least some display of count of sheep and wolves per tick (simple number results page exist but not connected)
-2. Test eating system so that sheep energy is transferred to wolf that ate it properly.
-3. Fix creation system so animals get proper initial stats.(done)
+1. Add proper live graph(XYPlot) or some display of count of sheep and wolves per tick (simple number results page exist but not connected)
+2. Test eating system so that sheep energy is transferred to wolf that ate it properly. (DONE)
+3. Fix creation system so animals get proper initial stats.(DONE)
 5. Decide UI flow of system
 4. Test overall system
 
 Possible extensions to try:
 1. allow for a food chain system (ie. something eats wolves who eat sheep)
+2. Optimize structure and flow of systems within program (eating,moving,etc)
