@@ -32,17 +32,19 @@ public class Options extends JPanel {
 	private JTextField WolvesReproductionText;
 	private JTextField wolvesEnergyText;
 	private JTextField intWolvesNumText;
+	private JTextField iterationsText;
+	private JTextField iterationValue;
 
 	/**
-	 * Create the panel.
+	 * Create the panel. Default values from NetLogo Model.
 	 */
 	public Options(Main main) {
 		this.main= main;
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel panelName = new JLabel("Options");
@@ -68,6 +70,8 @@ public class Options extends JPanel {
 		
 		
 		JSlider intWolvesNumSlider = new JSlider();
+		intWolvesNumSlider.setMaximum(250);
+		intWolvesNumSlider.setValue(30);
 		GridBagConstraints gbc_intWolvesNumSlider = new GridBagConstraints();
 		gbc_intWolvesNumSlider.fill = GridBagConstraints.HORIZONTAL;
 		gbc_intWolvesNumSlider.gridwidth = 3;
@@ -105,7 +109,7 @@ public class Options extends JPanel {
 		add(wolvesEnergyLabel, gbc_wolvesEnergyLabel);
 		
 		JSlider wolvesEnergySlider = new JSlider();
-		wolvesEnergySlider.setValue(25);
+		wolvesEnergySlider.setValue(13);
 		wolvesEnergySlider.setMaximum(50);
 		GridBagConstraints gbc_wolvesEnergySlider = new GridBagConstraints();
 		gbc_wolvesEnergySlider.fill = GridBagConstraints.HORIZONTAL;
@@ -145,6 +149,7 @@ public class Options extends JPanel {
 		add(wolvesReproductionLabel, gbc_wolvesReproductionLabel);
 		
 		JSlider wolvesReproductionSlider = new JSlider();
+		wolvesReproductionSlider.setValue(5);
 		GridBagConstraints gbc_wolvesReproductionSlider = new GridBagConstraints();
 		gbc_wolvesReproductionSlider.fill = GridBagConstraints.HORIZONTAL;
 		gbc_wolvesReproductionSlider.gridwidth = 3;
@@ -190,6 +195,8 @@ public class Options extends JPanel {
 		add(intSheepNumLabel, gbc_intSheepNumLabel);
 		
 		JSlider intSheepNumSlider = new JSlider();
+		intSheepNumSlider.setMaximum(250);
+		intSheepNumSlider.setValue(100);
 		GridBagConstraints gbc_intSheepNumSlider = new GridBagConstraints();
 		gbc_intSheepNumSlider.fill = GridBagConstraints.HORIZONTAL;
 		gbc_intSheepNumSlider.gridwidth = 3;
@@ -227,6 +234,7 @@ public class Options extends JPanel {
 		add(sheepEnergyLabel, gbc_sheepEnergyLabel);
 		
 		JSlider sheepEnergySlider = new JSlider();
+		sheepEnergySlider.setValue(4);
 		GridBagConstraints gbc_sheepEnergySlider = new GridBagConstraints();
 		gbc_sheepEnergySlider.fill = GridBagConstraints.HORIZONTAL;
 		gbc_sheepEnergySlider.gridwidth = 3;
@@ -264,6 +272,7 @@ public class Options extends JPanel {
 		add(sheepReproductionLabel, gbc_sheepReproductionLabel);
 		
 		JSlider sheepReproductionSlider = new JSlider();
+		sheepReproductionSlider.setValue(4);
 		GridBagConstraints gbc_sheepReproductionSlider = new GridBagConstraints();
 		gbc_sheepReproductionSlider.fill = GridBagConstraints.HORIZONTAL;
 		gbc_sheepReproductionSlider.gridwidth = 3;
@@ -292,12 +301,33 @@ public class Options extends JPanel {
 		        }
 		      });
 		
+		//Not Working yet
+		iterationsText = new JTextField();
+		iterationsText.setEditable(false);
+		GridBagConstraints gbc_iterationsText = new GridBagConstraints();
+		gbc_iterationsText.insets = new Insets(0, 0, 5, 5);
+		gbc_iterationsText.fill = GridBagConstraints.HORIZONTAL;
+		gbc_iterationsText.gridx = 1;
+		gbc_iterationsText.gridy = 10;
+		add(iterationsText, gbc_iterationsText);
+		iterationsText.setColumns(10);
+		
+		iterationValue = new JTextField();
+		iterationValue.setText("30");
+		GridBagConstraints gbc_iterationValue = new GridBagConstraints();
+		gbc_iterationValue.insets = new Insets(0, 0, 5, 5);
+		gbc_iterationValue.fill = GridBagConstraints.HORIZONTAL;
+		gbc_iterationValue.gridx = 3;
+		gbc_iterationValue.gridy = 10;
+		add(iterationValue, gbc_iterationValue);
+		iterationValue.setColumns(10);
+		
 		
 		JButton startButton = new JButton("Start");
 		GridBagConstraints gbc_startButton = new GridBagConstraints();
-		gbc_startButton.insets = new Insets(0, 0, 0, 5);
+		gbc_startButton.insets = new Insets(0, 0, 5, 5);
 		gbc_startButton.gridx = 8;
-		gbc_startButton.gridy = 9;
+		gbc_startButton.gridy = 11;
 		add(startButton, gbc_startButton);
 		startButton.addActionListener(new ActionListener() {
 			@Override

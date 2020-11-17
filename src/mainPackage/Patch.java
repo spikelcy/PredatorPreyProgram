@@ -106,6 +106,7 @@ public class Patch {
 		return sheepEnergy;	
 		}
 
+	
 	public void removeSheep(int num) {
 		// TODO Auto-generated method stub
 		int count = 0;
@@ -113,15 +114,16 @@ public class Patch {
 		System.out.println("Patch "+ x +" "+ y +" now has animals: "+animalsHere.size());
 		 for (int k = 0; k < animalsHere.size(); k++) {
 			 Animal animal = animalsHere.get(k);
-			 if (animal.hierachID == 1) {
-				 System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has been eaten");
-				 removeAnimals.add(animal);
-				 count++;
-				 System.out.println("Count increases: "+count);
-			 }
 			 if (count == num) {
 				 System.out.println("Count is: "+count+". Num is: "+ num);
 				 break;
+			 }
+			 
+			 if (animal.hierachID == 1) {
+				//System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has been eaten");
+				 removeAnimals.add(animal);
+				 count++;
+				 System.out.println("Count increases: "+count);
 			 }
 		 }
 		 animalsHere.removeAll(removeAnimals);
@@ -134,7 +136,7 @@ public class Patch {
 		 for (int k = 0; k < animalsHere.size(); k++) {
 			 Animal animal = animalsHere.get(k);
 			 // if count is above size of energy list that means that there is no more sheep to eat so break.
-			 if (count > energy.size()) {
+			 if (count >= energy.size()) {
 				 break;
 			 }
 			 

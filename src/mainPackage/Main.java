@@ -18,8 +18,8 @@ public class Main extends JFrame {
 	
 	
 	private JPanel contentPane;
-	private static int MAP_SIZE = 200;
-	private static int TICKS = 5;
+	private static int MAP_SIZE = 100;
+	private static int TICKS = 300;
 	int intWolvesNum;
 	int wolvesEnergy;
 	int WolvesReproduction;
@@ -28,12 +28,12 @@ public class Main extends JFrame {
 	int sheepReproduction;
 	Results resultsMenu;
 	 static Main frame;
-	static Patch[][] map = new Patch[200][200];
+	static Patch[][] map = new Patch[100][100];
 	// Storing the newest person's id, make sure all person have unique ID
 	static int lastID = 0;
 	
 	//testing graphs
-	PieChartTest demo; 
+	GraphPlot demo; 
 		
 	//Counts
 	ArrayList<Integer> wolvesCount = new ArrayList<Integer>() ;
@@ -49,7 +49,6 @@ public class Main extends JFrame {
 		//start at connectionMenu first
 		Options optionMenu = new Options(this);
 		resultsMenu = new Results(this);
-		demo = new PieChartTest("Comparison", "Which operating system are you using?");
 		
 		//contentPane = new JPanel();
 		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -76,7 +75,7 @@ public class Main extends JFrame {
 	
 	public void start(int wolvnum,int wolven,int wolvrec,int shnum,int shen,int sherep) {
 		intWolvesNum = wolvnum;
-		wolvesEnergy = wolven;
+		wolvesEnergy = (2*wolven);
 		WolvesReproduction = wolvrec;
 		intSheepNum = shnum;
 		sheepEnergy = shen;
@@ -85,10 +84,6 @@ public class Main extends JFrame {
 		
 		//frame.setContentPane(demo);
 		//frame.validate();
-		
-		//testing chart displaying
-		frame.setContentPane(demo.getChart());
-		frame.validate();
 		
 		initMap();
 		placeAnimal("wolf",intWolvesNum,wolvesEnergy,WolvesReproduction,2);
@@ -120,6 +115,15 @@ public class Main extends JFrame {
 
 					
 				}
+				
+				
+				demo = new GraphPlot("Comparison", "Wolves vs Sheep",wolvesCount,sheepCount,TICKS);
+				
+
+				//testing chart displaying
+				frame.setContentPane(demo.getChart());
+				frame.validate();
+				
 		
 		
 		
@@ -170,13 +174,21 @@ public class Main extends JFrame {
 					ArrayList<Integer> sheepEnergy = new ArrayList<Integer>() ;
 					sheepEnergy = currentPatch.getSheepEnergy();
 					int sheep = sheepEnergy.size();
-
+					
+					
+					
 					//Remove Sheep based on number of wolves and add energy to wolves
 					if (wolves != 0 && sheep != 0) {
+						System.out.println("Patch "+ i +" "+ j +" now has wolves: "+wolves);
+						System.out.println("Patch "+ i +" "+ j +" now has sheep: "+sheep);
 						//add energy to wolves
 						currentPatch.wolvesEnergyAdd(sheepEnergy);
-						currentPatch.removeSheep(sheep);
+						currentPatch.removeSheep(wolves);
+						//System.out.println("After eating process:");
+						//System.out.println("Patch "+ i +" "+ j +" now has wolves: "+currentPatch.getWolves());
+						//System.out.println("Patch "+ i +" "+ j +" now has sheep: "+ currentPatch.getSheepEnergy().size());
 					}
+					
 			}
 		}
 	}
@@ -233,21 +245,21 @@ public class Main extends JFrame {
 		    	int numAnimals = currentPatch.animalsHere.size();
 		    	ArrayList<Animal> removeAnimals = new ArrayList<Animal>();
 		    	   if (numAnimals != 0) {
-		    		   System.out.println("Patch "+ i +" "+ j +" checking death!");
-		    		   System.out.println("Patch "+ i +" "+ j +" now has animals: "+currentPatch.animalsHere.size());
+		    		   //System.out.println("Patch "+ i +" "+ j +" checking death!");
+		    		   //System.out.println("Patch "+ i +" "+ j +" now has animals: "+currentPatch.animalsHere.size());
 		    		   for (int k = 0; k < numAnimals; k++) {
 		    			   Animal animal = currentPatch.animalsHere.get(k);
 		    			   // if num is within reproduction rate, reproduce
 		    			   // 10 for testing
 		    			   if (animal.getEnergy() <= 0) {
-		    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" dies");
-		    				   System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has energy: "+animal.getEnergy());
+		    				  // System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" dies");
+		    				  // System.out.println("Animal "+animal.id+" of type: "+animal.hierachID +" has energy: "+animal.getEnergy());
 		    				   removeAnimals.add(animal);
 		    			   }
 		    		   }
 	
 		    		   currentPatch.animalsHere.removeAll(removeAnimals);
-		    		   System.out.println("Patch "+ i +" "+ j +" now has animals: "+currentPatch.animalsHere.size());
+		    		   //System.out.println("Patch "+ i +" "+ j +" now has animals: "+currentPatch.animalsHere.size());
 
 		    	   }
 			}
@@ -328,7 +340,7 @@ public class Main extends JFrame {
 			}
 			//System.out.println("Animal "+animal.id+" of hierch: "+animal.hierachID +" wants to move to pos x:"+x+"and pos y:"+y);
 			}
-			while (x > 199 || y > 199 || x < 0 || y < 0);
+			while (x > 99 || y > 99 || x < 0 || y < 0);
 		
 			animal.move(x,y);
 			//Add this person to people target in new Patch
