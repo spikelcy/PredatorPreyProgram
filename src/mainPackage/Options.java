@@ -32,7 +32,6 @@ public class Options extends JPanel {
 	private JTextField WolvesReproductionText;
 	private JTextField wolvesEnergyText;
 	private JTextField intWolvesNumText;
-	private JTextField iterationsText;
 	private JTextField iterationValue;
 
 	/**
@@ -128,7 +127,7 @@ public class Options extends JPanel {
 		gbc_wolvesEnergyText.gridy = 3;
 		add(wolvesEnergyText, gbc_wolvesEnergyText);
 		wolvesEnergyText.setColumns(10);
-		wolvesEnergyText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		wolvesEnergyText.setText("13");
 		
 		/**
 		 * Change text when slider changes for wolves energy
@@ -167,7 +166,7 @@ public class Options extends JPanel {
 		gbc_WolvesReproductionText.gridy = 4;
 		add(WolvesReproductionText, gbc_WolvesReproductionText);
 		WolvesReproductionText.setColumns(10);
-		WolvesReproductionText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		WolvesReproductionText.setText("5");
 		
 		/**
 		 * Change text when slider changes for wolvesReproductionSlider
@@ -214,7 +213,7 @@ public class Options extends JPanel {
 		gbc_intSheepNumText.gridy = 6;
 		add(intSheepNumText, gbc_intSheepNumText);
 		intSheepNumText.setColumns(10);
-		intSheepNumText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		intSheepNumText.setText("100");
 		
 		/**
 		 * Change text when slider changes for intSheepNumSlider
@@ -252,7 +251,7 @@ public class Options extends JPanel {
 		gbc_sheepEnergyText.gridy = 7;
 		add(sheepEnergyText, gbc_sheepEnergyText);
 		sheepEnergyText.setColumns(10);
-		sheepEnergyText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		sheepEnergyText.setText("4");
 		
 		/**
 		 * Change text when slider changes for sheepEnergySlider
@@ -290,7 +289,7 @@ public class Options extends JPanel {
 		gbc_sheepReproductionText.gridy = 8;
 		add(sheepReproductionText, gbc_sheepReproductionText);
 		sheepReproductionText.setColumns(10);
-		sheepReproductionText.setText(String.valueOf(intWolvesNumSlider.getValue()));
+		sheepReproductionText.setText("4");
 		
 		/**
 		 * Change text when slider changes for sheepEnergySlider
@@ -301,19 +300,15 @@ public class Options extends JPanel {
 		        }
 		      });
 		
-		//Not Working yet
-		iterationsText = new JTextField();
-		iterationsText.setEditable(false);
-		GridBagConstraints gbc_iterationsText = new GridBagConstraints();
-		gbc_iterationsText.insets = new Insets(0, 0, 5, 5);
-		gbc_iterationsText.fill = GridBagConstraints.HORIZONTAL;
-		gbc_iterationsText.gridx = 1;
-		gbc_iterationsText.gridy = 10;
-		add(iterationsText, gbc_iterationsText);
-		iterationsText.setColumns(10);
+		JLabel lblNewLabel = new JLabel("Number of Ticks");
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel.gridx = 1;
+		gbc_lblNewLabel.gridy = 10;
+		add(lblNewLabel, gbc_lblNewLabel);
 		
 		iterationValue = new JTextField();
-		iterationValue.setText("30");
+		iterationValue.setText("100");
 		GridBagConstraints gbc_iterationValue = new GridBagConstraints();
 		gbc_iterationValue.insets = new Insets(0, 0, 5, 5);
 		gbc_iterationValue.fill = GridBagConstraints.HORIZONTAL;

@@ -29,16 +29,7 @@ public class GraphPlot extends JPanel{
     public GraphPlot(String applicationTitle, String chartTitle,
     		ArrayList<Integer> wolvesCount,ArrayList<Integer> sheepCount,int ticks) {
         super();
-//        // This will create the dataset
-//        PieDataset dataset = createDataset();
-//        // based on the dataset we create the chart
-//        JFreeChart chart = createChart(dataset, chartTitle);
-//        // we put the chart into a panel
-//        panel = new ChartPanel(chart);
-//        // default size
-//        panel.setPreferredSize(new java.awt.Dimension(500, 270));
-        // add it to our application
-       // setContentPane(chartPanel);
+
         
         XYDataset dataset = createDataset(wolvesCount,sheepCount,ticks);
         JFreeChart chart = createChart(dataset, chartTitle);
@@ -54,17 +45,6 @@ public class GraphPlot extends JPanel{
         plot.setRenderer( renderer ); 
     }
 
-//    /**
-//     * Creates a sample dataset
-//     */
-//    private  PieDataset createDataset() {
-//        DefaultPieDataset result = new DefaultPieDataset();
-//        result.setValue("Linux", 29);
-//        result.setValue("Mac", 20);
-//        result.setValue("Windows", 51);
-//        return result;
-//
-//    }
 
     private XYDataset createDataset(ArrayList<Integer> wolvesCount,ArrayList<Integer> sheepCount,
     		int ticks ) {
