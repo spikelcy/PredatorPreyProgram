@@ -14,7 +14,7 @@ Current Progress:
 Things to do:
 1. Fix creation system so animals get proper initial stats.
 2. Test eating system so that sheep energy is transferred to wolf that ate it properly. (Needs more testing)
-3. Add proper default value numbers for options page and change value range based on NetLogo Model
+3. Add proper default value numbers for options page and change value range based on NetLogo Model (DONE)
 4. Add option to choose how long to run system and some loading text to state system is running
 5. Decide UI flow of system 
 6. Test overall system
