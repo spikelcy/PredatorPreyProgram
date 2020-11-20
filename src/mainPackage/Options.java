@@ -333,7 +333,8 @@ public class Options extends JPanel {
 				int sheepNum =  intSheepNumSlider.getValue();
 				int sheepEn = sheepEnergySlider.getValue();
 				int sheepRep = sheepReproductionSlider.getValue();
-				main.start(wolvesNum,wolvesEn,wolvesRep,sheepNum,sheepEn,sheepRep);
+				int itValue = Integer.valueOf(iterationValue.getText());
+				main.start(wolvesNum,wolvesEn,wolvesRep,sheepNum,sheepEn,sheepRep,itValue);
 			}
 		});
 		

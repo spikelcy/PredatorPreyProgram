@@ -19,7 +19,7 @@ public class Main extends JFrame {
 	
 	private JPanel contentPane;
 	private static int MAP_SIZE = 100;
-	private static int TICKS = 300;
+	int TICKS;
 	int intWolvesNum;
 	int wolvesEnergy;
 	int WolvesReproduction;
@@ -73,14 +73,14 @@ public class Main extends JFrame {
 
 	}
 	
-	public void start(int wolvnum,int wolven,int wolvrec,int shnum,int shen,int sherep) {
+	public void start(int wolvnum,int wolven,int wolvrec,int shnum,int shen,int sherep,int itvalue) {
 		intWolvesNum = wolvnum;
 		wolvesEnergy = (2*wolven);
 		WolvesReproduction = wolvrec;
 		intSheepNum = shnum;
 		sheepEnergy = shen;
 		sheepReproduction = sherep;
-		
+		TICKS = itvalue;
 		
 		//frame.setContentPane(demo);
 		//frame.validate();
@@ -92,7 +92,7 @@ public class Main extends JFrame {
 		
 		//run simulation of movement
 		//Run the model for the pre-defined number of ticks
-				for (int i = 0; i < TICKS;i++) {
+				for (int i = 0; i < TICKS ;i++) {
 					System.out.println("----------------------------------------------------------");
 					System.out.println("Tick "+i);
 					// Simulate each tick
