@@ -21,6 +21,7 @@ import javax.swing.JButton;
 /**
  * 
  * @author Spikelcy
+ * UI that displays options to change attributes of model before running.
  *
  */
 public class Options extends JPanel {
@@ -324,9 +325,18 @@ public class Options extends JPanel {
 		gbc_startButton.gridx = 8;
 		gbc_startButton.gridy = 11;
 		add(startButton, gbc_startButton);
+		
+		JLabel modelInfo = new JLabel("Model is running!");
+		modelInfo.setEnabled(false);
+		GridBagConstraints gbc_modelInfo = new GridBagConstraints();
+		gbc_modelInfo.insets = new Insets(0, 0, 0, 5);
+		gbc_modelInfo.gridx = 1;
+		gbc_modelInfo.gridy = 12;
+		add(modelInfo, gbc_modelInfo);
 		startButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				modelInfo.setEnabled(true);
 				int wolvesNum = intWolvesNumSlider.getValue();
 				int wolvesEn = wolvesEnergySlider.getValue();
 				int wolvesRep = wolvesReproductionSlider.getValue();

@@ -15,7 +15,8 @@ public class Results extends JPanel {
 	
 
 	/**
-	 * Create the panel.
+	 * Results page that could potentially display model results besides a graph.
+	 * Currently not in use.
 	 * @param main 
 	 */
 	public Results(Main main) {

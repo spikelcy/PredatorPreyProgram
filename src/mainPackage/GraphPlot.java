@@ -21,7 +21,12 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.util.Rotation;
 
-// Testing XYPlot without renaming file
+
+/**
+ * @author Spike
+ * Creates XY Plot graph to display results
+ *
+ */
 public class GraphPlot extends JPanel{
     private static final long serialVersionUID = 1L;
     ChartPanel panel;
