@@ -1,5 +1,5 @@
 # PredatorPreyProgram
-Simple Agent-base Predator Prey Model Program. In the agent model, wolves and sheep wander randomly around the landscape, while the wolves look for sheep to prey on. Each step costs the wolves energy, and they must eat sheep in order to replenish their energy - when they run out of energy they die. To allow the population to continue, each wolf or sheep has a fixed probability of reproducing at each time step. Based on NetLogo Agent-Based Model.
+Simple Agent-base Predator Prey Model Program. In this agent-based model, wolves and sheep wander randomly around the landscape(2d Array), while the wolves look for sheep to prey on. Each step costs the wolves energy, and they must eat sheep in order to replenish their energy - when they run out of energy they die. To allow the population to continue, each wolf or sheep has a fixed probability of reproducing at each time step. Based on NetLogo Agent-Based Model.
 
 Implemented by Spike Lee.
 
